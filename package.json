@@ -2,11 +2,11 @@
   "name": "periodic_table",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://fancy-periodic-table.herokuapp.com/",
+  "homepage": "https://greatest-periodic-table-foreal.herokuapp.com/",
   "dependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-scripts": "^3.4.0"
   },
   "scripts": {
     "start": "react-scripts start",
