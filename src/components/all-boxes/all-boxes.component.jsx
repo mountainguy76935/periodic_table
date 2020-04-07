@@ -85,6 +85,7 @@ export class AllBox extends React.Component{
                             symbols={this.props.symbol[clickedElem-1]} 
                             mass ={this.props.mass[clickedElem-1]}
                             colorGroup={this.state.colorGroup[this.props.group[clickedElem-1]]}
+                            group = {this.props.group[clickedElem-1]}
                             active = {this.state.clickedElem ? true : false}
                         /> 
                         <ExtraElements 
