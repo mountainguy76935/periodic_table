@@ -1,0 +1,35 @@
+.square{
+    color: black;
+    height: 70px;
+    width: 75px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    transition-duration: 1.2s;
+    font-family: 'Old Standard TT', serif;
+    border: solid grey 1px;
+    opacity: 1
+}
+
+.square.blur{
+    color: black;
+    height: 70px;
+    width: 75px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    transition-duration: .8s;
+    opacity: .2;
+    border: solid grey 1px;
+}
+
+.number{
+    margin-top: 4%;
+    color: black;
+    transition-duration: .8s;
+}
+
+.symbol{
+    margin-top: 0%;
+}

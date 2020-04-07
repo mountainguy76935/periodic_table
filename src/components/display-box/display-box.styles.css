@@ -1,0 +1,25 @@
+.display-box{
+    height: 0px;
+    width: 0px;
+    margin-left: 35%;
+    margin-top: 10%;
+    border: solid black 1px;
+    transition-duration: .8s;
+    border-radius: 0%;
+    opacity: 0;
+    position: absolute;
+    font-family: 'Old Standard TT', serif;
+}
+
+.display-box.active{
+    position: absolute;
+    height: 350px;
+    width: 300px;
+    margin-left: 35%;
+    margin-top: 10%;
+    border: solid black 1px;
+    transition-duration: .8s;
+    border-radius: 15%;
+    opacity: 1;
+    font-family: 'Old Standard TT', serif;
+}

@@ -1,0 +1,6 @@
+.main_box{
+    display: grid;
+    grid-template-columns: repeat(18, 75px);
+    grid-template-rows: repeat(7, 70px);
+    margin-top: 5%;
+}

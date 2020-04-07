@@ -1,0 +1,18 @@
+.extra{
+    grid-area: 6 / 3 / 8 / 3;
+    background-color: black;
+    height: 134px;
+    width: 69px;
+    position: relative;
+    transition-duration: .8s;
+    cursor: pointer;
+    border: solid black 3px;
+}
+
+.extra.blur{
+    opacity: .2
+}
+
+.extra.active{
+    background-color: white;
+}

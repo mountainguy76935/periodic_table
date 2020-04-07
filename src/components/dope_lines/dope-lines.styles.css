@@ -1,0 +1,55 @@
+.linesa{
+    transition-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0);
+    background-color: black;
+    height: 0px;
+    width: 3px;
+    position: absolute;
+    margin-top: -75px;
+    margin-left: -2px;
+    transition-duration: .3s;
+    z-index: 10
+  }
+  
+.linesb{
+    transition-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0);
+    background-color: black;
+    height: 0px;
+    width: 3px;
+    margin-top: -60px;
+    margin-left: 73px;
+    position: absolute;
+    bottom: 0px;
+    transition-duration: .3s;
+    z-index: 10
+  }
+  
+.linesd{
+    transition-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0);
+    transition-duration: .3s;
+    background-color: black;
+    height: 3px;
+    width: 0px;
+    margin-top: -7px;
+    position: absolute;
+    z-index: 10
+  }
+
+  .linesa.active{
+    height: 70px;
+    width: 3px;
+}
+
+.linesb.active{
+    height: 70px;
+    width: 3px;
+}
+
+.linesc.active{
+    height: 2px;
+    width: 0px;
+}
+
+.linesd.active{
+    height: 3px;
+    width: 75px;   
+}
