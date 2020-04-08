@@ -1,6 +1,7 @@
 import React from 'react';
 import './main_grid.styles.css'
 import { AllBox } from '../all-boxes/all-boxes.component';
+import { LoadBar } from '../load-bar/load-bar.component';
 
 export default class Grid extends React.Component{
     constructor() {
@@ -20,7 +21,7 @@ export default class Grid extends React.Component{
                       data['name'], 
                       data['atomicMass'], 
                       data['groupBlock']]
-              })
+                })
             })
         )
     }
@@ -34,14 +35,17 @@ export default class Grid extends React.Component{
         let data = this.state;
         return (
             <div className='main_box'>
+                <p>{Object.keys(this.state).length}</p>
+                {Object.keys(this.state).length > 117 ?  
                 <AllBox 
                 symbol = {[...Object.keys(data).map(a => [data[a]][0][0])]}
                 color = {[...Object.keys(data).map(a => [data[a]][0][1])]}
                 name = {[...Object.keys(data).map(a => [data[a]][0][2])]}
                 mass = {[...Object.keys(data).map(a =>  [data[a]][0][3])]}
                 group ={[...Object.keys(data).map(a =>  [data[a]][0][4])]}
-                number = {[...Object.keys(data)]}
-                />
+                number = {[...Object.keys(data)]} /> : 
+                <LoadBar loadNum={Object.keys(this.state).length}/>
+            }
             </div>
         )
     }

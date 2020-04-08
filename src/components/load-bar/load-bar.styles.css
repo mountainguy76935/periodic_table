@@ -1,0 +1,10 @@
+.loadbar{
+    color: white;
+    border-radius: 20%;
+    font-size: 30px;
+    height: 5px;
+    width: 0px;
+    margin-top: 300%;
+    margin-left: 600%;
+    background-color: white;
+}
