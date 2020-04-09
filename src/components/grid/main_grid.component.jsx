@@ -9,7 +9,7 @@ export default class Grid extends React.Component{
         this.state={}
     }
 
-    handleDisplay(arr){
+    handleDisplay = (arr) =>{
         arr.map(val =>
         fetch(`https://neelpatel05.pythonanywhere.com/element/atomicnumber?atomicnumber=${val}`)
             .then(resp => resp.json())
@@ -24,6 +24,7 @@ export default class Grid extends React.Component{
                 })
             })
         )
+        console.log(Object.keys(this.state))
     }
 
     componentDidMount(){
@@ -35,7 +36,6 @@ export default class Grid extends React.Component{
         let data = this.state;
         return (
             <div className='main_box'>
-                <p>{Object.keys(this.state).length}</p>
                 {Object.keys(this.state).length > 117 ?  
                 <AllBox 
                 symbol = {[...Object.keys(data).map(a => [data[a]][0][0])]}

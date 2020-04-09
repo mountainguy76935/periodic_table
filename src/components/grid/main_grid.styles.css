@@ -1,3 +1,11 @@
+@media only screen 
+  and (max-device-width: 380px)  {
+    .main_box{
+        display: flex;
+        
+    }
+}
+
 .main_box{
     display: grid;
     grid-template-columns: repeat(18, 75px);

@@ -4,7 +4,7 @@
     height: 0px;
     width: 3px;
     position: absolute;
-    margin-top: -75px;
+    margin-top: -73px;
     margin-left: -2px;
     transition-duration: .3s;
     z-index: 10
@@ -27,9 +27,9 @@
     transition-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0);
     transition-duration: .3s;
     background-color: black;
-    height: 3px;
+    height: 4px;
     width: 0px;
-    margin-top: -7px;
+    margin-top: -6px;
     position: absolute;
     z-index: 10
   }
