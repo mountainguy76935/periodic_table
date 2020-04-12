@@ -4,7 +4,8 @@ import { DisplayBox } from '../display-box/display-box.component';
 import { ExtraElements } from '../extra-elements/extra-elements.component'; 
 import { siftTop } from '../../functions/siftTop';
 import { siftMid } from '../../functions/siftMid';
-import { siftExtra } from '../../functions/siftExtra' 
+import { siftExtra } from '../../functions/siftExtra';
+import './all-boxes.styles.css';
 
 export class AllBox extends React.Component{
     constructor(props) {
@@ -25,25 +26,33 @@ export class AllBox extends React.Component{
                 'actinoid': '#9eae70',
                 'transition metal': '#a1bc77',
                 'post-transition metal': '#b0b47b'
-            }
+            },
+            disabled: false
         }
     }
 
-    handleClickOff = () => {
+    handleClickOff = (e) => {
         this.setState({
-            clickedElem: 0
+            clickedElem: 0,
+            disabled: false
         })
     }
 
     handleClick = (val) => {
+        return this.state.disabled ? 
+        null :
         this.setState({
-            clickedElem: parseInt(val)
+            clickedElem: parseInt(val),
+            disabled: true
         })
     }
 
     handleBoxClick = () => {
+        return this.state.disabled ?
+        null : 
         this.setState({
-            clicked: !this.state.clicked
+            clicked: !this.state.clicked,
+            disabled: true
         })
     }
 
@@ -65,9 +74,9 @@ export class AllBox extends React.Component{
                 {this.props.number.map(a =>
                     areaList[a-1] ? 
                     <React.Fragment>
-                    <Square 
+                    <Square
                         handleClick = {this.handleClick}
-                        number ={a} 
+                        number ={a}
                         symbols={this.props.symbol[a-1]} 
                         name = {this.props.name[a-1]} 
                         area={areaList[a-1]}
@@ -88,6 +97,7 @@ export class AllBox extends React.Component{
                             group = {this.props.group[clickedElem-1]}
                             active = {this.state.clickedElem ? true : false}
                         /> 
+                        {this.state.clickedElem ? <div className="layer"></div> : null}
                         <ExtraElements 
                             blur={this.state.clickedElem ? true : false}
                             handleClick={this.handleBoxClick}

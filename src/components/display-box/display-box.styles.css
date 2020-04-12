@@ -9,6 +9,7 @@
     opacity: 0;
     position: absolute;
     font-family: 'Old Standard TT', serif;
+    z-index: 20;
 }
 
 .display-box.active{

@@ -25,7 +25,6 @@ export default class Square extends React.Component{
     }
 
     render() {
-
         return (
             <React.Fragment>
             <div
@@ -47,7 +46,7 @@ export default class Square extends React.Component{
                 </p>
                 {this.state.element !== this.props.name ? 
                 <DopeLines color={this.props.colorGroup} hover={this.state.hover}/> : 
-                null} 
+                null}
                 </div>
             </React.Fragment>
         )

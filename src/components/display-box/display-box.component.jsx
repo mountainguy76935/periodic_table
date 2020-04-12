@@ -10,10 +10,11 @@ export const DisplayBox = (props) => {
       });
 
     const handleClick = (e) => {
-        if (!node.current.contains(e.target)) {
-          props.handleClickOff()
+        e.preventDefault();
+        if (node.current.contains(e.target)) {
+          return; 
           } else {
-            return 
+            props.handleClickOff() 
           }
         };
 

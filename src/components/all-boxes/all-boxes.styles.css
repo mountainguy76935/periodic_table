@@ -1,0 +1,10 @@
+.layer{
+    height: 600px;
+    width: 1450px;
+    margin-left: -80px;
+    margin-top: -80px;
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    background-color: black
+}
