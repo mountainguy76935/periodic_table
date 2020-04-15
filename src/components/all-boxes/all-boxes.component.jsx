@@ -2,28 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { Square } from '../square/square.component'
-import { ElemClicked, ElemUnclicked, ClickedBool, Disabled } from '../../redux-files/actions'
+import { ElemClicked, ElemUnclicked, Disabled } from '../../redux-files/actions'
 import { DisplayBox } from '../display-box/display-box.component';
 import { ExtraElements } from '../extra-elements/extra-elements.component'; 
 import { siftTop, siftMid, siftExtra } from '../../functions/sift';
 import './all-boxes.styles.css';
 
 const mapStateToProps = (state) => ({
-    clickedElem: state.clickedElem,
-    clicked: state.clicked,
-    diabled: state.disabled
+    clickedElem: state.ClickedReducer.clickedElem,
+    diabled: state.DisabledReducer.disabled
 })
 
 const mapDispatchToProps = (dispatch) => {
     return {
         submitElemClicked: (value) => dispatch(ElemClicked(value)),
         submitElemUnclicked: () => dispatch(ElemUnclicked()),
-        submitClickedBool: () => dispatch(ClickedBool()),
         submitDisabled: () => dispatch(Disabled())
     }
 }
 
 export const AllBox = (props) => {
+    const [clicked, setClicked] = React.useState(false)
     const colorGroup= {
                 'nonmetal': '#dbc0a6',
                 'alkali metal': '#364541',
@@ -57,12 +56,12 @@ export const AllBox = (props) => {
         if (props.disabled) {
             return null
         } else {
-            props.submitClickedBool();
+            setClicked(!clicked)
             props.submitDisabled()
         }
     }
 
-        const areaList = props.clicked ? 
+        const areaList = clicked ? 
         props.number.map(a => {
             return ((a>57 && a<72) || (a>89 && a<104)) ? 
             siftExtra(parseInt(a)) : 
@@ -109,7 +108,7 @@ export const AllBox = (props) => {
                         <ExtraElements 
                             fadeOut={clickedElem ? true : false}
                             handleClick={handleBoxClick}
-                            clicked={props.clicked}
+                            clicked={clicked}
                         />
             </React.Fragment>
         )

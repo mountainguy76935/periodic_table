@@ -1,54 +1,46 @@
 import React from 'react';
+import { RequestElements } from '../../redux-files/actions'
 import './main_grid.styles.css'
 import AllBox from '../all-boxes/all-boxes.component';
 import { LoadBar } from '../load-bar/load-bar.component';
+import { connect } from 'react-redux'
 
-export default class Grid extends React.Component{
-    constructor() {
-        super();
-        this.state={}
+const mapStateToProps = (state) => ({
+    elements: state.AsyncReducer.elements, 
+    isPending: state.AsyncReducer.isPending,
+    error: state.AsyncReducer.error,
+    allSuccess: state.AsyncReducer.allSuccess
+})
+
+const mapDispatchToProps = (dispatch) => ({
+    submitFetchElements: () => RequestElements(dispatch)
+})
+
+class Grid extends React.Component{
+
+    componentDidMount() {
+        this.props.submitFetchElements()
     }
 
-    handleDisplay = (arr) =>{
-        arr.map(val =>
-        fetch(`https://neelpatel05.pythonanywhere.com/element/atomicnumber?atomicnumber=${val}`)
-            .then(resp => resp.json())
-            .then(data => {
-              this.setState({
-                  [data['atomicNumber']]: {
-                      symbol: data['symbol'], 
-                      color: data['cpkHexColor'], 
-                      name: data['name'], 
-                      mass: data['atomicMass'], 
-                      group: data['groupBlock'],
-                      yearDiscovered: data['yearDiscovered']
-                    }
-                })
-            })
-        )
-    }
-
-    componentDidMount(){
-        const elements = new Array(118).fill(118).map((a,i) => a-i).reverse();
-        this.handleDisplay(elements);
-    }
-
-    render() {
-        let data = this.state;
+    render(){
+        let data = this.props.elements;
         return (
             <div className='main_box'>
-                {Object.keys(this.state).length > 117 ?  
+                <p>{this.props.allSuccess}</p>
+                {this.props.allSuccess ?  
                 <AllBox 
-                symbol = {[...Object.keys(data).map(a => [data[a]][0]['symbol'])]}
-                color = {[...Object.keys(data).map(a => [data[a]][0]['color'])]}
-                name = {[...Object.keys(data).map(a => [data[a]][0]['name'])]}
-                mass = {[...Object.keys(data).map(a =>  [data[a]][0]['mass'])]}
-                group ={[...Object.keys(data).map(a =>  [data[a]][0]['group'])]}
-                yearDiscovered ={[...Object.keys(data).map(a =>  [data[a]][0]['yearDiscovered'])]}
-                number = {[...Object.keys(data)]} /> : 
-                <LoadBar loadNum={Object.keys(this.state).length}/>
-            }
+                    symbol = {[...Object.keys(data).map(a => data[a]['symbol'])]}
+                    color = {[...Object.keys(data).map(a => data[a]['color'])]}
+                    name = {[...Object.keys(data).map(a => data[a]['name'])]}
+                    mass = {[...Object.keys(data).map(a =>  data[a]['atomicMass'])]}
+                    group ={[...Object.keys(data).map(a =>  data[a]['groupBlock'])]}
+                    yearDiscovered ={[...Object.keys(data).map(a =>  data[a]['yearDiscovered'])]}
+                    number = {[...Object.keys(data)]} /> : 
+                    <LoadBar loadNum={Object.keys(data).length}/>
+                }
             </div>
         )
     }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Grid)

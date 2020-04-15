@@ -1,12 +1,16 @@
 import React from 'react';
+import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import { Route } from 'react-router-dom';
-import './App.css';
-import { MainPage } from './pages/main-page.component';
-import ClickedElemReducer from '../src/redux-files/reducers'
 
-const store = createStore(ClickedElemReducer);
+
+import { MainPage } from './pages/main-page.component';
+import { ClickedReducer, DisabledReducer, AsyncReducer } from '../src/redux-files/reducers'
+import './App.css';
+
+const rootReducer = combineReducers({ ClickedReducer, DisabledReducer, AsyncReducer})
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 function App() {
   return (
