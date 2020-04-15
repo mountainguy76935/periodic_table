@@ -4,7 +4,7 @@
     height: 0px;
     width: 3px;
     position: absolute;
-    margin-top: -73px;
+    margin-top: -75px;
     margin-left: -2px;
     transition-duration: .3s;
     z-index: 10
@@ -14,42 +14,37 @@
     transition-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0);
     background-color: black;
     height: 0px;
-    width: 3px;
+    width: 4px;
     margin-top: -60px;
-    margin-left: 73px;
+    margin-left: 72px;
     position: absolute;
     bottom: 0px;
     transition-duration: .3s;
     z-index: 10
   }
   
-.linesd{
+.linesc{
     transition-timing-function: cubic-bezier(0.42, 0.0, 1.0, 1.0);
     transition-duration: .3s;
     background-color: black;
-    height: 4px;
+    height: 5px;
     width: 0px;
-    margin-top: -6px;
+    margin-top: -8px;
     position: absolute;
     z-index: 10
   }
 
   .linesa.active{
-    height: 70px;
+    height: 72px;
     width: 3px;
 }
 
 .linesb.active{
     height: 70px;
-    width: 3px;
+    width: 4px;
 }
 
 .linesc.active{
-    height: 2px;
-    width: 0px;
-}
-
-.linesd.active{
-    height: 3px;
+    height: 5px;
     width: 75px;   
 }

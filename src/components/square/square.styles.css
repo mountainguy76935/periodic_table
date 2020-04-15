@@ -12,7 +12,7 @@
     opacity: 1
 }
 
-.square.blur{
+.square.fadeOut{
     color: black;
     height: 70px;
     width: 75px;
@@ -28,8 +28,4 @@
     margin-top: 4%;
     color: black;
     transition-duration: .8s;
-}
-
-.symbol{
-    margin-top: 0%;
 }

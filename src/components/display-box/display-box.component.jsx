@@ -23,9 +23,11 @@ export const DisplayBox = (props) => {
             <React.Fragment>
                 <div 
                     ref={node}
-                    onClick={handleClick}
                     style={{
-                      backgroundColor: `${props.colorGroup ? props.colorGroup : 'FFFFFF'}`
+                      backgroundColor: `${
+                        props.colorGroup ? 
+                        props.colorGroup : 
+                        'FFFFFF'}`
                     }}
                     className={props.active ? 
                       "display-box active" :
@@ -33,11 +35,19 @@ export const DisplayBox = (props) => {
                     }
                 >
                   <div className='sizing'>
-                    <h1>{props.number>0 ? props.number : ''}</h1>
+                    <h1>{
+                      props.number>0 ? 
+                      props.number : 
+                      ''}
+                    </h1>
                     <h1>{props.symbols}</h1>
                     <h1>{props.name}</h1>
                     <h3>{props.mass}</h3>
                     <p>{props.group}</p>
+                    <p>{props.active ? 
+                      `year discovered: ${props.yearDiscovered}` : 
+                      null}
+                    </p>
                   </div>
                 </div>
             </React.Fragment>

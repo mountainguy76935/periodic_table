@@ -1,40 +1,24 @@
 import React from 'react';
 import './extra-elements.styles.css'
 
-export class ExtraElements extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state={
-            hover: false
-        }
-    }
+export const ExtraElements = (props) => {
+    const [hover, setHover] = React.useState(false)
     
-    handleHover = () => {
-        this.setState({
-            hover: true
-        })
-    }
-
-    handleExit = () => {
-        this.setState({
-            hover: false
-        })
-    }
-    render() {
-        return(
-            <div 
+    return(
+        <div 
             className={
-                this.state.hover || this.props.clicked ? 
+                props.fadeOut && props.clicked ?
+                'extra active fadeOut' :
+                hover || props.clicked ? 
                 "extra active" : 
-                this.props.blur ? 
-                "extra blur" :
+                props.fadeOut ? 
+                "extra fadeOut" : 
                 "extra"
             }
-            onClick={this.props.handleClick}
-            onMouseOver = {this.handleHover}
-            onMouseOut={this.handleExit}
-            >
-            </div>
-        )
-    }
+            onClick={props.handleClick}
+            onMouseOver = {() => setHover(true)}
+            onMouseOut={() => setHover(false)}
+        >
+        </div>
+    )
 }

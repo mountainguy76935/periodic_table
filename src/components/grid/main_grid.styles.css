@@ -2,7 +2,6 @@
   and (max-device-width: 380px)  {
     .main_box{
         display: flex;
-        
     }
 }
 

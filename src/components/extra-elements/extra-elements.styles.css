@@ -9,10 +9,15 @@
     border: solid black 3px;
 }
 
-.extra.blur{
+.extra.active{
+    background-color: white;
+}
+
+.extra.fadeOut{
     opacity: .2
 }
 
-.extra.active{
+.extra.active.fadeOut{
     background-color: white;
+    opacity: .2
 }

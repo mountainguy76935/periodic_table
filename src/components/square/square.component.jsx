@@ -1,54 +1,30 @@
 import React from 'react';
-import './square.styles.css'
+import './square.styles.css';
 
 import { DopeLines } from '../dope_lines/dope-lines.component';
 
-export default class Square extends React.Component{
-    constructor() {
-        super();
-        this.state = {
-            hover: false,
-            element: '',
-        }
-    }
+export const Square = (props) => {
+    const [hover, setHover] = React.useState(false)
 
-    handleHover = () => {
-        this.setState({
-            hover: true
-        })
-    }
-
-    handleOffHover = () => {
-        this.setState({
-            hover: false
-        })
-    }
-
-    render() {
-        return (
-            <React.Fragment>
+    return (
+        <React.Fragment>
             <div
-                onClick={() => this.props.handleClick(this.props.number)} 
+                onClick={() => props.handleClick(parseInt(props.number))} 
                 className = {
-                    this.props.blur ?
-                    'square blur' :
+                    props.fadeOut ?
+                    'square fadeOut' :
                     'square'
                 }
-                onMouseOver = {this.handleHover}
-                onMouseOut={this.handleOffHover}
+                onMouseOver = {() => setHover(true)}
+                onMouseOutCapture={() => setHover(false)}
                 style= {{
-                        gridArea: this.props.area, 
-                        backgroundColor: `${this.props.colorGroup}`}}
-                >
-                <p className="number">{this.props.number}</p>    
-                <p className="symbol">
-                    {this.props.symbols}
-                </p>
-                {this.state.element !== this.props.name ? 
-                <DopeLines color={this.props.colorGroup} hover={this.state.hover}/> : 
-                null}
-                </div>
-            </React.Fragment>
-        )
-    }
+                        gridArea: props.area, 
+                        backgroundColor: `${props.colorGroup}`}}
+            >
+                <p className="number">{props.number}</p>    
+                <p className="symbol">{props.symbols}</p>
+                <DopeLines color={props.colorGroup} hover={hover}/>
+            </div>
+        </React.Fragment>
+    )
 }
